@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A9 GCC Performance</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>System: 1 GHz ARM Cortex A9 (Pandaboard)</p>
+     <p>Compiler: gcc 4.4.5 (native)</p>
+     <p>Configure settings: <tt>--enable-single --enable-neon --enable-armv7a-cycle-counter ARM_CPU_TYPE=cortex-a9</tt></p>
+     <p>Comments: <i>Scalar performance is 4-7 times better on the Cortex A9 than the Cortex A8, thanks to a much better VFP unit,
+        while NEON performance is only slightly improved. This makes the typical speed gain from NEON 1.2-1.5x on the A9, with
+        peak rates around 1.0 gigaflops on a single core. As with the A8, it is faster not to use NEON's fused multiply-add instructions.</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="c-1d-p.png" alt="Complex 1-D Powers of Two">
+    <img src="c-1d-np.png" alt="Complex 1-D Non-powers of Two">
+    <img src="r-1d-p.png" alt="Real 1-D Powers of Two">
+    <img src="r-1d-np.png" alt="Real 1-D Non-powers of Two">
+    <img src="c-2d-p.png" alt="Complex 2-D Powers of Two">
+    <img src="c-2d-np.png" alt="Complex 2-D Non-powers of Two">
+    <img src="r-2d-p.png" alt="Real 2-D Powers of Two">
+    <img src="r-2d-np.png" alt="Real 2-D Non-powers of Two">
+    <img src="c-3d-p.png" alt="Complex 3-D Powers of Two">
+    <img src="c-3d-np.png" alt="Complex 3-D Non-powers of Two">
+    <img src="r-3d-p.png" alt="Real 3-D Powers of Two">
+    <img src="r-3d-np.png" alt="Real 3-D Non-powers of Two">
+  </div>
+     <p><a href="gcc-a9-nofma.txt">Detailed NEON timing data for these cases</a></p>
+  <div class="mtb">
+  <p><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+  </div>
+</body>
+</html>

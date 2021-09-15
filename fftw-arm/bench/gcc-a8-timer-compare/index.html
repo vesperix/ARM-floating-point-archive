@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A8 GCC Timer Comparison</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>System: 1 GHz ARM Cortex A8 (Beagleboard XM)</p>
+     <p>Compiler: gcc 4.4.5 (native)</p>
+     <p>Configure settings: <tt>--enable-single --enable-neon --enable-perf-events ARM_CPU_TYPE=cortex-a8</tt></p>
+     <p>Configure settings for slow timer: <tt>--enable-single --enable-neon --with-slow-timer ARM_CPU_TYPE=cortex-a8</tt></p>
+     <p>Configure settings for estimate: <tt>--enable-single --enable-neon ARM_CPU_TYPE=cortex-a8</tt></p>
+     <p>Comments: <i>These comparisons show the differences between using a cycle counter, using the standard
+                      FFTW 3.2.2 option <tt>--with-slow-timer</tt>, and using no cycle counter (estimating the best
+                      plan rather than measuring). Estimating isn't that bad, especially on simple FFTs where there are only a 
+                      few different ways to do the computation; once there are a lot of choices, you'll
+                      want to use a cycle counter or a slow timer, which are almost identical in performance.
+                      Even with a cycle counter, there are many complex plans that take 10 seconds or more to generate,
+                      so don't fool yourself into thinking that you can generate plans on the fly except for batch mode processing.</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="c-1d-p.png" alt="Complex 1-D Powers of Two">
+    <img src="c-1d-np.png" alt="Complex 1-D Non-powers of Two">
+    <img src="r-1d-p.png" alt="Real 1-D Powers of Two">
+    <img src="r-1d-np.png" alt="Real 1-D Non-powers of Two">
+    <img src="c-2d-p.png" alt="Complex 2-D Powers of Two">
+    <img src="c-2d-np.png" alt="Complex 2-D Non-powers of Two">
+    <img src="r-2d-p.png" alt="Real 2-D Powers of Two">
+    <img src="r-2d-np.png" alt="Real 2-D Non-powers of Two">
+    <img src="c-3d-p.png" alt="Complex 3-D Powers of Two">
+    <img src="c-3d-np.png" alt="Complex 3-D Non-powers of Two">
+    <img src="r-3d-p.png" alt="Real 3-D Powers of Two">
+    <img src="r-3d-np.png" alt="Real 3-D Non-powers of Two">
+  </div>
+     <p><a href="gcc-a8-nofma.txt">Detailed NEON timing data for --enable-perf-events cases</a></p>
+     <p><a href="gcc-a8-slow-timer.txt">Detailed NEON timing data for --with-slow-timer cases</a></p>
+     <p><a href="gcc-a8-estimate.txt">Detailed NEON timing data for estimate cases</a></p>
+  <div class="mtb">
+  <p><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+  </div>
+</body>
+</html>

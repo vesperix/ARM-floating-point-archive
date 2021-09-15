@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Downloading and Building FFTW-ARM</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <h2>Building FFTW-ARM <img class="floatright" src="http://www.vesperix.com/Vesperix-small-72.png" alt="Vesperix Logo"></h2>
+  <div class="mtb">
+  <p><em>The latest version of the mainline FFTW distribution (FFTW 3.3.4) includes support for ARM NEON. It was developed independently by the original developers of FFTW, and
+     is available from the <a href="http://www.fftw.org/download.html">FFTW download page</a>.</em></p>
+  <p>We will continue to make FFTW-ARM available here for users too stubborn to change, but we strongly suggest transitioning to the
+     mainline distribution since it will be supported by the original developers. FFTW-ARM is no longer supported or maintained.</p>
+  <p>The process for building FFTW-ARM is the same as FFTW 3.2.2; if you do not have experience doing this, please 
+     take a look at the <a href="http://www.fftw.org/fftw3_doc/Installation-and-Customization.html">installation 
+     section</a> of the FFTW manual and run through the build process with the 
+     <a href="http://www.fftw.org/download.html">unmodified FFTW 3.2.2 source</a> first.
+  </p>
+  <h3>Summary for the Impatient:</h3>
+    <ol class="plain">
+      <li><a href=fftw-3.2.2-arm.tar.gz>Get the source</a>, untar it, cd into <tt>fftw-3.2.2-arm</tt></li>
+      <li><tt>./configure --enable-single --enable-neon</tt> (cycle counter options are also available, see below)</li>
+      <li><tt>make</tt></li>
+      <li><tt>make check</tt> (please do <em>not</em> skip this step!)</li>
+      <li><a href="#bugs">Let us know</a> of any problems you find, or of successful builds on new system types</li>
+  </ol>
+  <p>For additional configuration options and more detailed information, follow the steps below:</p>
+  <h3>Step 1: Download and unpack the source code for FFTW-ARM</h3>
+    <p>The source is available in <a href=fftw-3.2.2-arm.tar.gz>tar.gz format</a> or
+    <a href=fftw-3.2.2-arm.zip>zip format</a>.</p>
+    <p>Unpack it with <tt>tar xvzf fftw-3.2.2-arm.tar.gz</tt> or <tt>unzip fftw-3.2.2-arm.zip</tt>.</p>
+    <p>All the remaining steps happen in the source directory, so <tt>cd fftw-3.2.2-arm</tt>.</p>
+  <h3>Step 2: Determine your settings and run <tt>./configure</tt></h3>
+    <p>It's very likely that you want to use the options <tt>--enable-single --enable-neon</tt>, since they're the whole reason for FFTW-ARM;
+       additional options are described below. All of the standard configure settings for FFTW 3.2.2 are 
+       still available, of course, and they should 
+       all behave in the ususal way. The full list of options can be shown using <tt>./configure --help</tt>.
+    </p>
+    <h4>Generating NEON SIMD Code</h4>
+    <p>Use the configure option <tt>--enable-neon</tt> (which requires <tt>--enable-single</tt>) to cause SIMD code
+       for NEON to be generated. If you do not specify this option, FFTW-ARM should generate scalar
+       code just like the standard FFTW 3.2.2. </p>
+    <p><em>Note that the <tt>gcc</tt> shipped with some distributions,
+       including those based on Angstrom, requires explicit specification of the CPU and ABI before it will 
+       generate NEON code.</em> Check the output of <tt>configure</tt> to be certain that it reports <tt>arm_neon.h</tt> as usable.
+       If it does not, try passing the option <tt>ARM_FLOAT_ABI=softfp</tt> to configure.
+    </p>
+    <p>The default is to generate code that does not use fused multiply-add instructions, because
+       we have found that using NEON FMA is 5-10% slower on Cortex A8 and A9 processors (see the 
+       <a href="../bench/index.html">benchmarks</a> section for details). The NEON routines fully
+       support FMA, and you can cause these instructions to be used with the standard FFTW 3.2.2 option
+       <tt>--enable-fma</tt>. Please let us know if you find a system where FFTW-ARM is faster with 
+       FMA enabled.
+    </p>
+    <h4>Cycle Counters</h4>
+    <p>FFTW can use a cycle counter to provide accurate timings of the alternative ways to compute an FFT of the
+       desired length. The best way found is saved in a plan that should be reused for later FFTs of the same length.
+       If you do not have a cycle counter you can either</p>
+    <ul>
+       <li>use the standard option <tt>--with-slow-timer</tt> to get good results, but long plan generation times</li>
+       <li>use no timer option, in which case planning will use an estimate of the fastest way, rather than a measurement</li>
+    </ul>
+     <p> The timer comparisons in the
+       <a href="../bench/index.html">benchmarks</a> section show the speeds obtained with and without
+       cycle counters. The standard <tt>--with-slow-timer</tt> gives performance as good as a cycle counter
+       in almost all cases we've tested; it just takes much longer to generate a plan the first time you compute an FFT of a given length.</p>
+    <p>If you prefer or require a cycle counter, we have provided two alternatives, one using the <tt>perf events</tt> subsystem that has been
+       added to the Linux kernel starting with version 2.6.31, and one using Mans Rullgard's earlier USER_PMON 
+       (userspace access to performance monitors) kernel patch.
+       Unfortunately, there are a huge number of kernel variants used on ARMv7 processors, and neither of the
+       cycle counter alternatives we provide is certain to be available out of the box.
+    </p>
+    <p>We provide small test programs below to check whether your kernel supports the counters we provide, but if it does 
+       not, then you'll need to recompile your kernel to use either of these cycle counters. 
+       See the <a href="../faq/index.html">FAQ</a> and your distribution's instructions on recompiling the kernel
+       for more information.
+    </p>
+    <dl>
+      <dt>Using the perf events cycle counter:</dt>
+      <dd><tt>--enable-perf-events</tt>
+      <br>You can compile and run <a href="test_perf_events.c"><tt>test_perf_events.c</tt></a> to verify that your
+          kernel supports hardware perf events. Note that some OMAP4 kernels (e.g. Ubuntu 10.10) only have software
+          perf events enabled, which are no help to FFTW; the test program will tell you that the hardware cycle counter is not available.
+          If this happens to you, try the USER_PMON patch below.</dd>
+      <dt>Using the ARMv7a cycle counter:</dt>
+      <dd><tt>--enable-arm-v7a-cycle-counter</tt>
+      <br>You can compile and run <a href="test_user_pmon.c"><tt>test_user_pmon.c</tt></a> to verify that your 
+          cycle counter is working after you have applied Mans Rullgard's USER_PMON patch 
+          (available <a href="http://git.mansr.com/?p=linux-omap;a=commitdiff;h=5170038">here</a>) 
+          and recompiled your kernel.</dd>
+      <dt>Using <tt>mach_absolute_time</tt> on iOS Systems:</dt>
+      <dd>On iOS systems like the iPhone and iPad, we believe (but have not yet confirmed) that the 
+       <tt>mach_absolute_time</tt> function, already supported by FFTW 3.2.2, should be detected by <tt>configure</tt> 
+       and used automatically as a cycle counter. You should not need to specify a <tt>configure</tt> option for this to happen. 
+       Please let us know if you can confirm whether <tt>mach_absolute_time</tt> works or fails on iOS ARM systems.</dd>
+    </dl>
+    <h4>Additional Options</h4>
+    <p>Two new command line arguments, <tt>ARM_CPU_TYPE</tt> and <tt>ARM_FLOAT_ABI</tt>,
+       have been added to allow passing additional flags to <tt>gcc</tt> or any other compiler (such as 
+       <tt>clang</tt>) that accepts the same command-line argument syntax. 
+    </p>
+    <dl>
+      <dt>Specify the ARM CPU type:</dt>
+      <dd><tt>ARM_CPU_TYPE=[any value supported by the -mcpu= option of your compiler]</tt>
+      <br>For example: "<tt>ARM_CPU_TYPE=cortex-a9</tt>". If this is not specified, the compiler
+          is passed <tt>march=armv7a</tt> instead. Some versions of <tt>gcc</tt> require a CPU type to be specified 
+          before they will generate NEON code, even when the NEON code is inline assembly (as our SIMD kernels are).</dd>
+      <dt>Specify the floating point ABI:</dt>
+      <dd><tt>ARM_FLOAT_ABI=[any value supported by the -mfloat-abi= option of your compiler]</tt>
+      <br>For example: "<tt>ARM_FLOAT_ABI=softfp</tt>" is required by some compilers (including those in most Angstrom-based distributions and the
+          Code Sourcery cross-compilers) to generate NEON code. If this is not specified, no <tt>mfloat-abi</tt>
+          specification is passed, and the compiler default is used.</dd>
+    </dl>
+    <p>All the other command line arguments supported by FFTW 3.2.2 (<tt>CC</tt>, <tt>CFLAGS</tt>, <tt>CPPFLAGS</tt>, etc.) should work as usual.
+    </p>
+    <h4>Examples:</h4>
+    <dl>
+      <dt>Single precision, using NEON and no cycle counter:</dt>
+      <dd><tt>./configure --enable-single --enable-neon</tt></dd>
+      <dt>Single precision, using NEON and the perf events cycle counter:</dt>
+      <dd><tt>./configure --enable-single --enable-neon --enable-perf-events</tt></dd>
+      <dt>Single precision, using NEON and the ARMv7a cycle counter:</dt>
+      <dd><tt>./configure --enable-single --enable-neon --enable-arm-v7a-cycle-counter</tt></dd>
+      <dt>Single precision, using NEON and the standard FFTW 3.2.2 slow timer option:</dt>
+      <dd><tt>./configure --enable-single --enable-neon --with-slow-timer</tt></dd>
+      <dt>Single precision, using NEON and the ARMv7a cycle counter, 
+          on Angstrom or any other distribution where gcc requires explicit specification of CPU type and ABI optimizing for the Cortex A9:</dt>
+      <dd><tt>./configure --enable-single --enable-neon --enable-arm-v7a-cycle-counter ARM_CPU_TYPE=cortex-a9 ARM_FLOAT_ABI=softfp</tt></dd>
+      <dt>Single precision, using NEON and the ARMv7a cycle counter, 
+          cross-compiling from an x86 Linux system with Code Sourcery G++, optimizing for the Cortex A9:</dt>
+      <dd><tt>./configure --enable-single --enable-neon --enable-arm-v7a-cycle-counter --build=i686-pc-linux-gnu --host=arm-none-linux-gnueabi 
+              --disable-fortran ARM_CPU_TYPE=cortex-a9 ARM_FLOAT_ABI=softfp</tt></dd>
+      <dt>Single precision, using NEON and the perf events cycle counter, compiling with Clang (which does not automatically set preprocessor flags or pass options to the linker like gcc):</dt>
+      <dd><tt>./configure --enable-single --enable-neon --enable-perf-events CC=clang CPPFLAGS="-D__ARM_NEON__" CFLAGS="-O3 -Wa,-mcpu=cortex-a8 -Wa,-mfpu=neon"</tt></dd>
+    </dl>
+    <p>If the configure process fails, please take a look at its output. The <tt>configure</tt> script is designed to check whether the system has
+        everything it needs to build FFTW, and the error messages can often tell you what part of the system is missing or misconfigured. If you
+        cannot easily resolve the problem using this process, please let us know what happened, including the output of the script.</p>
+  <h3>Step 3: Make the FFTW library</h3>
+    <p><tt>make</tt></p>
+    <p>If the make process fails, please let us know, and include any messages given by make.</p>
+  <h3>Step 4: Check the results</h3>
+    <p><tt>make check</tt></p>
+    <p>If you are ready to leave for the day, please also run a more comprensive set of tests. These will take several hours, but will
+       help us make sure that the results are correct for a very wide range of problems:</p>
+    <p><tt>cd tests</tt>
+    <br><tt>make bigcheck</tt></p>
+
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2011-4 Vesperix Corporation</small></p>
+</body>
+</html>

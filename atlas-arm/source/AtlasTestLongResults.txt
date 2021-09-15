@@ -1,0 +1,670 @@
+Starting Testing ATLAS bin (pt)
+NTEST=18432, NUMBER PASSED=18432, NUMBER FAILURES=0
+End of xsmmtst_pt ...
+NTEST=18432, NUMBER PASSED=18432, NUMBER FAILURES=0
+End of xdmmtst_pt ...
+NTEST=73728, NUMBER PASSED=73728, NUMBER FAILURES=0
+End of xcmmtst_pt ...
+NTEST=73728, NUMBER PASSED=73728, NUMBER FAILURES=0
+End of xzmmtst_pt ...
+End of xsl3blastst_pt ...
+End of xdl3blastst_pt ...
+End of xcl3blastst_pt ...
+End of xzl3blastst_pt ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xsinvtst_pt ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xdinvtst_pt ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xcinvtst_pt ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xzinvtst_pt ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xsllttst_pt ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xdllttst_pt ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xcllttst_pt ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xzllttst_pt ...
+End of xslutst_pt ...
+End of xdlutst_pt ...
+End of xclutst_pt ...
+End of xzlutst_pt ...
+
+Starting Testing ATLAS bin
+End of xsl1blastst ...
+End of xdl1blastst ...
+End of xcl1blastst ...
+End of xzl1blastst ...
+End of xsl2blastst ...
+End of xdl2blastst ...
+End of xcl2blastst ...
+End of xzl2blastst ...
+NTEST=18432, NUMBER PASSED=18432, NUMBER FAILURES=0
+End of xsmmtst ...
+NTEST=18432, NUMBER PASSED=18432, NUMBER FAILURES=0
+End of xdmmtst ...
+NTEST=73728, NUMBER PASSED=73728, NUMBER FAILURES=0
+End of xcmmtst ...
+NTEST=73728, NUMBER PASSED=73728, NUMBER FAILURES=0
+End of xzmmtst ...
+End of xsl3blastst ...
+End of xdl3blastst ...
+End of xcl3blastst ...
+End of xzl3blastst ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xsinvtst ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xdinvtst ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xcinvtst ...
+32 cases: 32 passed, 0 skipped, 0 failed
+End of xzinvtst ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xsllttst ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xdllttst ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xcllttst ...
+16 cases: 16 passed, 0 skipped, 0 failed
+End of xzllttst ...
+End of xslutst ...
+End of xdlutst ...
+End of xclutst ...
+End of xzlutst ...
+rm -f /home/user/ATLAS-3.8.4-arm-beta1/test/bin//binrun
+( cd /home/user/AtlasTest/beta1/F77/; /bin/csh f77blasrun /home/user/ATLAS-3.8.4-arm-beta1/test ARMv732NEON )
+Starting Testing F77 BLAS interface 
+End of rand  (s) L2 tests, No 1 : sblat2_1.dat
+End of rand  (s) L3 tests, No 1 : sblat3_1.dat
+End of rand  (s) L3 pt tests, No 1 : sblat3_1.dat
+End of rand  (c) L2 tests, No 1 : cblat2_1.dat
+End of rand  (c) L3 tests, No 1 : cblat3_1.dat
+End of rand  (c) L3 pt tests, No 1 : cblat3_1.dat
+End of rand  (d) L2 tests, No 1 : dblat2_1.dat
+End of rand  (d) L3 tests, No 1 : dblat3_1.dat
+End of rand  (d) L3 pt tests, No 1 : dblat3_1.dat
+End of rand  (z) L2 tests, No 1 : zblat2_1.dat
+End of rand  (z) L3 tests, No 1 : zblat3_1.dat
+End of rand  (z) L3 pt tests, No 1 : zblat3_1.dat
+End of rand  (s) L2 tests, No 2 : sblat2_2.dat
+End of rand  (s) L3 tests, No 2 : sblat3_2.dat
+End of rand  (s) L3 pt tests, No 2 : sblat3_2.dat
+End of rand  (c) L2 tests, No 2 : cblat2_2.dat
+End of rand  (c) L3 tests, No 2 : cblat3_2.dat
+End of rand  (c) L3 pt tests, No 2 : cblat3_2.dat
+End of rand  (d) L2 tests, No 2 : dblat2_2.dat
+End of rand  (d) L3 tests, No 2 : dblat3_2.dat
+End of rand  (d) L3 pt tests, No 2 : dblat3_2.dat
+End of rand  (z) L2 tests, No 2 : zblat2_2.dat
+End of rand  (z) L3 tests, No 2 : zblat3_2.dat
+End of rand  (z) L3 pt tests, No 2 : zblat3_2.dat
+End of rand  (s) L2 tests, No 3 : sblat2_3.dat
+End of rand  (s) L3 tests, No 3 : sblat3_3.dat
+End of rand  (s) L3 pt tests, No 3 : sblat3_3.dat
+End of rand  (c) L2 tests, No 3 : cblat2_3.dat
+End of rand  (c) L3 tests, No 3 : cblat3_3.dat
+End of rand  (c) L3 pt tests, No 3 : cblat3_3.dat
+End of rand  (d) L2 tests, No 3 : dblat2_3.dat
+End of rand  (d) L3 tests, No 3 : dblat3_3.dat
+End of rand  (d) L3 pt tests, No 3 : dblat3_3.dat
+End of rand  (z) L2 tests, No 3 : zblat2_3.dat
+End of rand  (z) L3 tests, No 3 : zblat3_3.dat
+End of rand  (z) L3 pt tests, No 3 : zblat3_3.dat
+End of rand  (s) L2 tests, No 4 : sblat2_4.dat
+End of rand  (s) L3 tests, No 4 : sblat3_4.dat
+End of rand  (s) L3 pt tests, No 4 : sblat3_4.dat
+End of rand  (c) L2 tests, No 4 : cblat2_4.dat
+End of rand  (c) L3 tests, No 4 : cblat3_4.dat
+End of rand  (c) L3 pt tests, No 4 : cblat3_4.dat
+End of rand  (d) L2 tests, No 4 : dblat2_4.dat
+End of rand  (d) L3 tests, No 4 : dblat3_4.dat
+End of rand  (d) L3 pt tests, No 4 : dblat3_4.dat
+End of rand  (z) L2 tests, No 4 : zblat2_4.dat
+End of rand  (z) L3 tests, No 4 : zblat3_4.dat
+End of rand  (z) L3 pt tests, No 4 : zblat3_4.dat
+End of rand  (s) L2 tests, No 5 : sblat2_5.dat
+End of rand  (s) L3 tests, No 5 : sblat3_5.dat
+End of rand  (s) L3 pt tests, No 5 : sblat3_5.dat
+End of rand  (c) L2 tests, No 5 : cblat2_5.dat
+End of rand  (c) L3 tests, No 5 : cblat3_5.dat
+End of rand  (c) L3 pt tests, No 5 : cblat3_5.dat
+End of rand  (d) L2 tests, No 5 : dblat2_5.dat
+End of rand  (d) L3 tests, No 5 : dblat3_5.dat
+End of rand  (d) L3 pt tests, No 5 : dblat3_5.dat
+End of rand  (z) L2 tests, No 5 : zblat2_5.dat
+End of rand  (z) L3 tests, No 5 : zblat3_5.dat
+End of rand  (z) L3 pt tests, No 5 : zblat3_5.dat
+End of rand  (s) L2 tests, No 6 : sblat2_6.dat
+End of rand  (s) L3 tests, No 6 : sblat3_6.dat
+End of rand  (s) L3 pt tests, No 6 : sblat3_6.dat
+End of rand  (c) L2 tests, No 6 : cblat2_6.dat
+End of rand  (c) L3 tests, No 6 : cblat3_6.dat
+End of rand  (c) L3 pt tests, No 6 : cblat3_6.dat
+End of rand  (d) L2 tests, No 6 : dblat2_6.dat
+End of rand  (d) L3 tests, No 6 : dblat3_6.dat
+End of rand  (d) L3 pt tests, No 6 : dblat3_6.dat
+End of rand  (z) L2 tests, No 6 : zblat2_6.dat
+End of rand  (z) L3 tests, No 6 : zblat3_6.dat
+End of rand  (z) L3 pt tests, No 6 : zblat3_6.dat
+End of rand  (s) L2 tests, No 7 : sblat2_7.dat
+End of rand  (s) L3 tests, No 7 : sblat3_7.dat
+End of rand  (s) L3 pt tests, No 7 : sblat3_7.dat
+End of rand  (c) L2 tests, No 7 : cblat2_7.dat
+End of rand  (c) L3 tests, No 7 : cblat3_7.dat
+End of rand  (c) L3 pt tests, No 7 : cblat3_7.dat
+End of rand  (d) L2 tests, No 7 : dblat2_7.dat
+End of rand  (d) L3 tests, No 7 : dblat3_7.dat
+End of rand  (d) L3 pt tests, No 7 : dblat3_7.dat
+End of rand  (z) L2 tests, No 7 : zblat2_7.dat
+End of rand  (z) L3 tests, No 7 : zblat3_7.dat
+End of rand  (z) L3 pt tests, No 7 : zblat3_7.dat
+End of rand  (s) L2 tests, No 8 : sblat2_8.dat
+End of rand  (s) L3 tests, No 8 : sblat3_8.dat
+End of rand  (s) L3 pt tests, No 8 : sblat3_8.dat
+End of rand  (c) L2 tests, No 8 : cblat2_8.dat
+End of rand  (c) L3 tests, No 8 : cblat3_8.dat
+End of rand  (c) L3 pt tests, No 8 : cblat3_8.dat
+End of rand  (d) L2 tests, No 8 : dblat2_8.dat
+End of rand  (d) L3 tests, No 8 : dblat3_8.dat
+End of rand  (d) L3 pt tests, No 8 : dblat3_8.dat
+End of rand  (z) L2 tests, No 8 : zblat2_8.dat
+End of rand  (z) L3 tests, No 8 : zblat3_8.dat
+End of rand  (z) L3 pt tests, No 8 : zblat3_8.dat
+End of rand  (s) L2 tests, No 9 : sblat2_9.dat
+End of rand  (s) L3 tests, No 9 : sblat3_9.dat
+End of rand  (s) L3 pt tests, No 9 : sblat3_9.dat
+End of rand  (c) L2 tests, No 9 : cblat2_9.dat
+End of rand  (c) L3 tests, No 9 : cblat3_9.dat
+End of rand  (c) L3 pt tests, No 9 : cblat3_9.dat
+End of rand  (d) L2 tests, No 9 : dblat2_9.dat
+End of rand  (d) L3 tests, No 9 : dblat3_9.dat
+End of rand  (d) L3 pt tests, No 9 : dblat3_9.dat
+End of rand  (z) L2 tests, No 9 : zblat2_9.dat
+End of rand  (z) L3 tests, No 9 : zblat3_9.dat
+End of rand  (z) L3 pt tests, No 9 : zblat3_9.dat
+End of rand  (s) L2 tests, No 10 : sblat2_10.dat
+End of rand  (s) L3 tests, No 10 : sblat3_10.dat
+End of rand  (s) L3 pt tests, No 10 : sblat3_10.dat
+End of rand  (c) L2 tests, No 10 : cblat2_10.dat
+End of rand  (c) L3 tests, No 10 : cblat3_10.dat
+End of rand  (c) L3 pt tests, No 10 : cblat3_10.dat
+End of rand  (d) L2 tests, No 10 : dblat2_10.dat
+End of rand  (d) L3 tests, No 10 : dblat3_10.dat
+End of rand  (d) L3 pt tests, No 10 : dblat3_10.dat
+End of rand  (z) L2 tests, No 10 : zblat2_10.dat
+End of rand  (z) L3 tests, No 10 : zblat3_10.dat
+End of rand  (z) L3 pt tests, No 10 : zblat3_10.dat
+End of rand  (s) L2 tests, No 11 : sblat2_11.dat
+End of rand  (s) L3 tests, No 11 : sblat3_11.dat
+End of rand  (s) L3 pt tests, No 11 : sblat3_11.dat
+End of rand  (c) L2 tests, No 11 : cblat2_11.dat
+End of rand  (c) L3 tests, No 11 : cblat3_11.dat
+End of rand  (c) L3 pt tests, No 11 : cblat3_11.dat
+End of rand  (d) L2 tests, No 11 : dblat2_11.dat
+End of rand  (d) L3 tests, No 11 : dblat3_11.dat
+End of rand  (d) L3 pt tests, No 11 : dblat3_11.dat
+End of rand  (z) L2 tests, No 11 : zblat2_11.dat
+End of rand  (z) L3 tests, No 11 : zblat3_11.dat
+End of rand  (z) L3 pt tests, No 11 : zblat3_11.dat
+End of rand  (s) L2 tests, No 12 : sblat2_12.dat
+End of rand  (s) L3 tests, No 12 : sblat3_12.dat
+End of rand  (s) L3 pt tests, No 12 : sblat3_12.dat
+End of rand  (c) L2 tests, No 12 : cblat2_12.dat
+End of rand  (c) L3 tests, No 12 : cblat3_12.dat
+End of rand  (c) L3 pt tests, No 12 : cblat3_12.dat
+End of rand  (d) L2 tests, No 12 : dblat2_12.dat
+End of rand  (d) L3 tests, No 12 : dblat3_12.dat
+End of rand  (d) L3 pt tests, No 12 : dblat3_12.dat
+End of rand  (z) L2 tests, No 12 : zblat2_12.dat
+End of rand  (z) L3 tests, No 12 : zblat3_12.dat
+End of rand  (z) L3 pt tests, No 12 : zblat3_12.dat
+End of rand  (s) L2 tests, No 13 : sblat2_13.dat
+End of rand  (s) L3 tests, No 13 : sblat3_13.dat
+End of rand  (s) L3 pt tests, No 13 : sblat3_13.dat
+End of rand  (c) L2 tests, No 13 : cblat2_13.dat
+End of rand  (c) L3 tests, No 13 : cblat3_13.dat
+End of rand  (c) L3 pt tests, No 13 : cblat3_13.dat
+End of rand  (d) L2 tests, No 13 : dblat2_13.dat
+End of rand  (d) L3 tests, No 13 : dblat3_13.dat
+End of rand  (d) L3 pt tests, No 13 : dblat3_13.dat
+End of rand  (z) L2 tests, No 13 : zblat2_13.dat
+End of rand  (z) L3 tests, No 13 : zblat3_13.dat
+End of rand  (z) L3 pt tests, No 13 : zblat3_13.dat
+End of rand  (s) L2 tests, No 14 : sblat2_14.dat
+End of rand  (s) L3 tests, No 14 : sblat3_14.dat
+End of rand  (s) L3 pt tests, No 14 : sblat3_14.dat
+End of rand  (c) L2 tests, No 14 : cblat2_14.dat
+End of rand  (c) L3 tests, No 14 : cblat3_14.dat
+End of rand  (c) L3 pt tests, No 14 : cblat3_14.dat
+End of rand  (d) L2 tests, No 14 : dblat2_14.dat
+End of rand  (d) L3 tests, No 14 : dblat3_14.dat
+End of rand  (d) L3 pt tests, No 14 : dblat3_14.dat
+End of rand  (z) L2 tests, No 14 : zblat2_14.dat
+End of rand  (z) L3 tests, No 14 : zblat3_14.dat
+End of rand  (z) L3 pt tests, No 14 : zblat3_14.dat
+End of rand  (s) L2 tests, No 15 : sblat2_15.dat
+End of rand  (s) L3 tests, No 15 : sblat3_15.dat
+End of rand  (s) L3 pt tests, No 15 : sblat3_15.dat
+End of rand  (c) L2 tests, No 15 : cblat2_15.dat
+End of rand  (c) L3 tests, No 15 : cblat3_15.dat
+End of rand  (c) L3 pt tests, No 15 : cblat3_15.dat
+End of rand  (d) L2 tests, No 15 : dblat2_15.dat
+End of rand  (d) L3 tests, No 15 : dblat3_15.dat
+End of rand  (d) L3 pt tests, No 15 : dblat3_15.dat
+End of rand  (z) L2 tests, No 15 : zblat2_15.dat
+End of rand  (z) L3 tests, No 15 : zblat3_15.dat
+End of rand  (z) L3 pt tests, No 15 : zblat3_15.dat
+End of rand  (s) L2 tests, No 16 : sblat2_16.dat
+End of rand  (s) L3 tests, No 16 : sblat3_16.dat
+End of rand  (s) L3 pt tests, No 16 : sblat3_16.dat
+End of rand  (c) L2 tests, No 16 : cblat2_16.dat
+End of rand  (c) L3 tests, No 16 : cblat3_16.dat
+End of rand  (c) L3 pt tests, No 16 : cblat3_16.dat
+End of rand  (d) L2 tests, No 16 : dblat2_16.dat
+End of rand  (d) L3 tests, No 16 : dblat3_16.dat
+End of rand  (d) L3 pt tests, No 16 : dblat3_16.dat
+End of rand  (z) L2 tests, No 16 : zblat2_16.dat
+End of rand  (z) L3 tests, No 16 : zblat3_16.dat
+End of rand  (z) L3 pt tests, No 16 : zblat3_16.dat
+End of rand  (s) L2 tests, No 17 : sblat2_17.dat
+End of rand  (s) L3 tests, No 17 : sblat3_17.dat
+End of rand  (s) L3 pt tests, No 17 : sblat3_17.dat
+End of rand  (c) L2 tests, No 17 : cblat2_17.dat
+End of rand  (c) L3 tests, No 17 : cblat3_17.dat
+End of rand  (c) L3 pt tests, No 17 : cblat3_17.dat
+End of rand  (d) L2 tests, No 17 : dblat2_17.dat
+End of rand  (d) L3 tests, No 17 : dblat3_17.dat
+End of rand  (d) L3 pt tests, No 17 : dblat3_17.dat
+End of rand  (z) L2 tests, No 17 : zblat2_17.dat
+End of rand  (z) L3 tests, No 17 : zblat3_17.dat
+End of rand  (z) L3 pt tests, No 17 : zblat3_17.dat
+End of rand  (s) L2 tests, No 18 : sblat2_18.dat
+End of rand  (s) L3 tests, No 18 : sblat3_18.dat
+End of rand  (s) L3 pt tests, No 18 : sblat3_18.dat
+End of rand  (c) L2 tests, No 18 : cblat2_18.dat
+End of rand  (c) L3 tests, No 18 : cblat3_18.dat
+End of rand  (c) L3 pt tests, No 18 : cblat3_18.dat
+End of rand  (d) L2 tests, No 18 : dblat2_18.dat
+End of rand  (d) L3 tests, No 18 : dblat3_18.dat
+End of rand  (d) L3 pt tests, No 18 : dblat3_18.dat
+End of rand  (z) L2 tests, No 18 : zblat2_18.dat
+End of rand  (z) L3 tests, No 18 : zblat3_18.dat
+End of rand  (z) L3 pt tests, No 18 : zblat3_18.dat
+End of rand  (s) L2 tests, No 19 : sblat2_19.dat
+End of rand  (s) L3 tests, No 19 : sblat3_19.dat
+End of rand  (s) L3 pt tests, No 19 : sblat3_19.dat
+End of rand  (c) L2 tests, No 19 : cblat2_19.dat
+End of rand  (c) L3 tests, No 19 : cblat3_19.dat
+End of rand  (c) L3 pt tests, No 19 : cblat3_19.dat
+End of rand  (d) L2 tests, No 19 : dblat2_19.dat
+End of rand  (d) L3 tests, No 19 : dblat3_19.dat
+End of rand  (d) L3 pt tests, No 19 : dblat3_19.dat
+End of rand  (z) L2 tests, No 19 : zblat2_19.dat
+End of rand  (z) L3 tests, No 19 : zblat3_19.dat
+End of rand  (z) L3 pt tests, No 19 : zblat3_19.dat
+End of rand  (s) L2 tests, No 20 : sblat2_20.dat
+End of rand  (s) L3 tests, No 20 : sblat3_20.dat
+End of rand  (s) L3 pt tests, No 20 : sblat3_20.dat
+End of rand  (c) L2 tests, No 20 : cblat2_20.dat
+End of rand  (c) L3 tests, No 20 : cblat3_20.dat
+End of rand  (c) L3 pt tests, No 20 : cblat3_20.dat
+End of rand  (d) L2 tests, No 20 : dblat2_20.dat
+End of rand  (d) L3 tests, No 20 : dblat3_20.dat
+End of rand  (d) L3 pt tests, No 20 : dblat3_20.dat
+End of rand  (z) L2 tests, No 20 : zblat2_20.dat
+End of rand  (z) L3 tests, No 20 : zblat3_20.dat
+End of rand  (z) L3 pt tests, No 20 : zblat3_20.dat
+End of F77 BLAS inter.  tests
+rm -f /home/user/AtlasTest/beta1/F77//f77blasrun
+( cd /home/user/AtlasTest/beta1/C/; /bin/csh cblasrun /home/user/ATLAS-3.8.4-arm-beta1/test ARMv732NEON )
+End of rand  (s) L2 tests, No 1 : c_sblat2_1.dat
+End of rand  (s) L3 tests, No 1 : c_sblat3_1.dat
+End of rand  (s) L3 pt tests, No 1 : c_sblat3_1.dat
+End of rand  (c) L2 tests, No 1 : c_cblat2_1.dat
+End of rand  (c) L3 tests, No 1 : c_cblat3_1.dat
+End of rand  (c) L3 pt tests, No 1 : c_cblat3_1.dat
+End of rand  (d) L2 tests, No 1 : c_dblat2_1.dat
+End of rand  (d) L3 tests, No 1 : c_dblat3_1.dat
+End of rand  (d) L3 pt tests, No 1 : c_dblat3_1.dat
+End of rand  (z) L2 tests, No 1 : c_zblat2_1.dat
+End of rand  (z) L3 tests, No 1 : c_zblat3_1.dat
+End of rand  (z) L3 pt tests, No 1 : c_zblat3_1.dat
+End of rand  (s) L2 tests, No 2 : c_sblat2_2.dat
+End of rand  (s) L3 tests, No 2 : c_sblat3_2.dat
+End of rand  (s) L3 pt tests, No 2 : c_sblat3_2.dat
+End of rand  (c) L2 tests, No 2 : c_cblat2_2.dat
+End of rand  (c) L3 tests, No 2 : c_cblat3_2.dat
+End of rand  (c) L3 pt tests, No 2 : c_cblat3_2.dat
+End of rand  (d) L2 tests, No 2 : c_dblat2_2.dat
+End of rand  (d) L3 tests, No 2 : c_dblat3_2.dat
+End of rand  (d) L3 pt tests, No 2 : c_dblat3_2.dat
+End of rand  (z) L2 tests, No 2 : c_zblat2_2.dat
+End of rand  (z) L3 tests, No 2 : c_zblat3_2.dat
+End of rand  (z) L3 pt tests, No 2 : c_zblat3_2.dat
+End of rand  (s) L2 tests, No 3 : c_sblat2_3.dat
+End of rand  (s) L3 tests, No 3 : c_sblat3_3.dat
+End of rand  (s) L3 pt tests, No 3 : c_sblat3_3.dat
+End of rand  (c) L2 tests, No 3 : c_cblat2_3.dat
+End of rand  (c) L3 tests, No 3 : c_cblat3_3.dat
+End of rand  (c) L3 pt tests, No 3 : c_cblat3_3.dat
+End of rand  (d) L2 tests, No 3 : c_dblat2_3.dat
+End of rand  (d) L3 tests, No 3 : c_dblat3_3.dat
+End of rand  (d) L3 pt tests, No 3 : c_dblat3_3.dat
+End of rand  (z) L2 tests, No 3 : c_zblat2_3.dat
+End of rand  (z) L3 tests, No 3 : c_zblat3_3.dat
+End of rand  (z) L3 pt tests, No 3 : c_zblat3_3.dat
+End of rand  (s) L2 tests, No 4 : c_sblat2_4.dat
+End of rand  (s) L3 tests, No 4 : c_sblat3_4.dat
+End of rand  (s) L3 pt tests, No 4 : c_sblat3_4.dat
+End of rand  (c) L2 tests, No 4 : c_cblat2_4.dat
+End of rand  (c) L3 tests, No 4 : c_cblat3_4.dat
+End of rand  (c) L3 pt tests, No 4 : c_cblat3_4.dat
+End of rand  (d) L2 tests, No 4 : c_dblat2_4.dat
+End of rand  (d) L3 tests, No 4 : c_dblat3_4.dat
+End of rand  (d) L3 pt tests, No 4 : c_dblat3_4.dat
+End of rand  (z) L2 tests, No 4 : c_zblat2_4.dat
+End of rand  (z) L3 tests, No 4 : c_zblat3_4.dat
+End of rand  (z) L3 pt tests, No 4 : c_zblat3_4.dat
+End of rand  (s) L2 tests, No 5 : c_sblat2_5.dat
+End of rand  (s) L3 tests, No 5 : c_sblat3_5.dat
+End of rand  (s) L3 pt tests, No 5 : c_sblat3_5.dat
+End of rand  (c) L2 tests, No 5 : c_cblat2_5.dat
+End of rand  (c) L3 tests, No 5 : c_cblat3_5.dat
+End of rand  (c) L3 pt tests, No 5 : c_cblat3_5.dat
+End of rand  (d) L2 tests, No 5 : c_dblat2_5.dat
+End of rand  (d) L3 tests, No 5 : c_dblat3_5.dat
+End of rand  (d) L3 pt tests, No 5 : c_dblat3_5.dat
+End of rand  (z) L2 tests, No 5 : c_zblat2_5.dat
+End of rand  (z) L3 tests, No 5 : c_zblat3_5.dat
+End of rand  (z) L3 pt tests, No 5 : c_zblat3_5.dat
+End of rand  (s) L2 tests, No 6 : c_sblat2_6.dat
+End of rand  (s) L3 tests, No 6 : c_sblat3_6.dat
+End of rand  (s) L3 pt tests, No 6 : c_sblat3_6.dat
+End of rand  (c) L2 tests, No 6 : c_cblat2_6.dat
+End of rand  (c) L3 tests, No 6 : c_cblat3_6.dat
+End of rand  (c) L3 pt tests, No 6 : c_cblat3_6.dat
+End of rand  (d) L2 tests, No 6 : c_dblat2_6.dat
+End of rand  (d) L3 tests, No 6 : c_dblat3_6.dat
+End of rand  (d) L3 pt tests, No 6 : c_dblat3_6.dat
+End of rand  (z) L2 tests, No 6 : c_zblat2_6.dat
+End of rand  (z) L3 tests, No 6 : c_zblat3_6.dat
+End of rand  (z) L3 pt tests, No 6 : c_zblat3_6.dat
+End of rand  (s) L2 tests, No 7 : c_sblat2_7.dat
+End of rand  (s) L3 tests, No 7 : c_sblat3_7.dat
+End of rand  (s) L3 pt tests, No 7 : c_sblat3_7.dat
+End of rand  (c) L2 tests, No 7 : c_cblat2_7.dat
+End of rand  (c) L3 tests, No 7 : c_cblat3_7.dat
+End of rand  (c) L3 pt tests, No 7 : c_cblat3_7.dat
+End of rand  (d) L2 tests, No 7 : c_dblat2_7.dat
+End of rand  (d) L3 tests, No 7 : c_dblat3_7.dat
+End of rand  (d) L3 pt tests, No 7 : c_dblat3_7.dat
+End of rand  (z) L2 tests, No 7 : c_zblat2_7.dat
+End of rand  (z) L3 tests, No 7 : c_zblat3_7.dat
+End of rand  (z) L3 pt tests, No 7 : c_zblat3_7.dat
+End of rand  (s) L2 tests, No 8 : c_sblat2_8.dat
+End of rand  (s) L3 tests, No 8 : c_sblat3_8.dat
+End of rand  (s) L3 pt tests, No 8 : c_sblat3_8.dat
+End of rand  (c) L2 tests, No 8 : c_cblat2_8.dat
+End of rand  (c) L3 tests, No 8 : c_cblat3_8.dat
+End of rand  (c) L3 pt tests, No 8 : c_cblat3_8.dat
+End of rand  (d) L2 tests, No 8 : c_dblat2_8.dat
+End of rand  (d) L3 tests, No 8 : c_dblat3_8.dat
+End of rand  (d) L3 pt tests, No 8 : c_dblat3_8.dat
+End of rand  (z) L2 tests, No 8 : c_zblat2_8.dat
+End of rand  (z) L3 tests, No 8 : c_zblat3_8.dat
+End of rand  (z) L3 pt tests, No 8 : c_zblat3_8.dat
+End of rand  (s) L2 tests, No 9 : c_sblat2_9.dat
+End of rand  (s) L3 tests, No 9 : c_sblat3_9.dat
+End of rand  (s) L3 pt tests, No 9 : c_sblat3_9.dat
+End of rand  (c) L2 tests, No 9 : c_cblat2_9.dat
+End of rand  (c) L3 tests, No 9 : c_cblat3_9.dat
+End of rand  (c) L3 pt tests, No 9 : c_cblat3_9.dat
+End of rand  (d) L2 tests, No 9 : c_dblat2_9.dat
+End of rand  (d) L3 tests, No 9 : c_dblat3_9.dat
+End of rand  (d) L3 pt tests, No 9 : c_dblat3_9.dat
+End of rand  (z) L2 tests, No 9 : c_zblat2_9.dat
+End of rand  (z) L3 tests, No 9 : c_zblat3_9.dat
+End of rand  (z) L3 pt tests, No 9 : c_zblat3_9.dat
+End of rand  (s) L2 tests, No 10 : c_sblat2_10.dat
+End of rand  (s) L3 tests, No 10 : c_sblat3_10.dat
+End of rand  (s) L3 pt tests, No 10 : c_sblat3_10.dat
+End of rand  (c) L2 tests, No 10 : c_cblat2_10.dat
+End of rand  (c) L3 tests, No 10 : c_cblat3_10.dat
+End of rand  (c) L3 pt tests, No 10 : c_cblat3_10.dat
+End of rand  (d) L2 tests, No 10 : c_dblat2_10.dat
+End of rand  (d) L3 tests, No 10 : c_dblat3_10.dat
+End of rand  (d) L3 pt tests, No 10 : c_dblat3_10.dat
+End of rand  (z) L2 tests, No 10 : c_zblat2_10.dat
+End of rand  (z) L3 tests, No 10 : c_zblat3_10.dat
+End of rand  (z) L3 pt tests, No 10 : c_zblat3_10.dat
+End of rand  (s) L2 tests, No 11 : c_sblat2_11.dat
+End of rand  (s) L3 tests, No 11 : c_sblat3_11.dat
+End of rand  (s) L3 pt tests, No 11 : c_sblat3_11.dat
+End of rand  (c) L2 tests, No 11 : c_cblat2_11.dat
+End of rand  (c) L3 tests, No 11 : c_cblat3_11.dat
+End of rand  (c) L3 pt tests, No 11 : c_cblat3_11.dat
+End of rand  (d) L2 tests, No 11 : c_dblat2_11.dat
+End of rand  (d) L3 tests, No 11 : c_dblat3_11.dat
+End of rand  (d) L3 pt tests, No 11 : c_dblat3_11.dat
+End of rand  (z) L2 tests, No 11 : c_zblat2_11.dat
+End of rand  (z) L3 tests, No 11 : c_zblat3_11.dat
+End of rand  (z) L3 pt tests, No 11 : c_zblat3_11.dat
+End of rand  (s) L2 tests, No 12 : c_sblat2_12.dat
+End of rand  (s) L3 tests, No 12 : c_sblat3_12.dat
+End of rand  (s) L3 pt tests, No 12 : c_sblat3_12.dat
+End of rand  (c) L2 tests, No 12 : c_cblat2_12.dat
+End of rand  (c) L3 tests, No 12 : c_cblat3_12.dat
+End of rand  (c) L3 pt tests, No 12 : c_cblat3_12.dat
+End of rand  (d) L2 tests, No 12 : c_dblat2_12.dat
+End of rand  (d) L3 tests, No 12 : c_dblat3_12.dat
+End of rand  (d) L3 pt tests, No 12 : c_dblat3_12.dat
+End of rand  (z) L2 tests, No 12 : c_zblat2_12.dat
+End of rand  (z) L3 tests, No 12 : c_zblat3_12.dat
+End of rand  (z) L3 pt tests, No 12 : c_zblat3_12.dat
+End of rand  (s) L2 tests, No 13 : c_sblat2_13.dat
+End of rand  (s) L3 tests, No 13 : c_sblat3_13.dat
+End of rand  (s) L3 pt tests, No 13 : c_sblat3_13.dat
+End of rand  (c) L2 tests, No 13 : c_cblat2_13.dat
+End of rand  (c) L3 tests, No 13 : c_cblat3_13.dat
+End of rand  (c) L3 pt tests, No 13 : c_cblat3_13.dat
+End of rand  (d) L2 tests, No 13 : c_dblat2_13.dat
+End of rand  (d) L3 tests, No 13 : c_dblat3_13.dat
+End of rand  (d) L3 pt tests, No 13 : c_dblat3_13.dat
+End of rand  (z) L2 tests, No 13 : c_zblat2_13.dat
+End of rand  (z) L3 tests, No 13 : c_zblat3_13.dat
+End of rand  (z) L3 pt tests, No 13 : c_zblat3_13.dat
+End of rand  (s) L2 tests, No 14 : c_sblat2_14.dat
+End of rand  (s) L3 tests, No 14 : c_sblat3_14.dat
+End of rand  (s) L3 pt tests, No 14 : c_sblat3_14.dat
+End of rand  (c) L2 tests, No 14 : c_cblat2_14.dat
+End of rand  (c) L3 tests, No 14 : c_cblat3_14.dat
+End of rand  (c) L3 pt tests, No 14 : c_cblat3_14.dat
+End of rand  (d) L2 tests, No 14 : c_dblat2_14.dat
+End of rand  (d) L3 tests, No 14 : c_dblat3_14.dat
+End of rand  (d) L3 pt tests, No 14 : c_dblat3_14.dat
+End of rand  (z) L2 tests, No 14 : c_zblat2_14.dat
+End of rand  (z) L3 tests, No 14 : c_zblat3_14.dat
+End of rand  (z) L3 pt tests, No 14 : c_zblat3_14.dat
+End of rand  (s) L2 tests, No 15 : c_sblat2_15.dat
+End of rand  (s) L3 tests, No 15 : c_sblat3_15.dat
+End of rand  (s) L3 pt tests, No 15 : c_sblat3_15.dat
+End of rand  (c) L2 tests, No 15 : c_cblat2_15.dat
+End of rand  (c) L3 tests, No 15 : c_cblat3_15.dat
+End of rand  (c) L3 pt tests, No 15 : c_cblat3_15.dat
+End of rand  (d) L2 tests, No 15 : c_dblat2_15.dat
+End of rand  (d) L3 tests, No 15 : c_dblat3_15.dat
+End of rand  (d) L3 pt tests, No 15 : c_dblat3_15.dat
+End of rand  (z) L2 tests, No 15 : c_zblat2_15.dat
+End of rand  (z) L3 tests, No 15 : c_zblat3_15.dat
+End of rand  (z) L3 pt tests, No 15 : c_zblat3_15.dat
+End of rand  (s) L2 tests, No 16 : c_sblat2_16.dat
+End of rand  (s) L3 tests, No 16 : c_sblat3_16.dat
+End of rand  (s) L3 pt tests, No 16 : c_sblat3_16.dat
+End of rand  (c) L2 tests, No 16 : c_cblat2_16.dat
+End of rand  (c) L3 tests, No 16 : c_cblat3_16.dat
+End of rand  (c) L3 pt tests, No 16 : c_cblat3_16.dat
+End of rand  (d) L2 tests, No 16 : c_dblat2_16.dat
+End of rand  (d) L3 tests, No 16 : c_dblat3_16.dat
+End of rand  (d) L3 pt tests, No 16 : c_dblat3_16.dat
+End of rand  (z) L2 tests, No 16 : c_zblat2_16.dat
+End of rand  (z) L3 tests, No 16 : c_zblat3_16.dat
+End of rand  (z) L3 pt tests, No 16 : c_zblat3_16.dat
+End of rand  (s) L2 tests, No 17 : c_sblat2_17.dat
+End of rand  (s) L3 tests, No 17 : c_sblat3_17.dat
+End of rand  (s) L3 pt tests, No 17 : c_sblat3_17.dat
+End of rand  (c) L2 tests, No 17 : c_cblat2_17.dat
+End of rand  (c) L3 tests, No 17 : c_cblat3_17.dat
+End of rand  (c) L3 pt tests, No 17 : c_cblat3_17.dat
+End of rand  (d) L2 tests, No 17 : c_dblat2_17.dat
+End of rand  (d) L3 tests, No 17 : c_dblat3_17.dat
+End of rand  (d) L3 pt tests, No 17 : c_dblat3_17.dat
+End of rand  (z) L2 tests, No 17 : c_zblat2_17.dat
+End of rand  (z) L3 tests, No 17 : c_zblat3_17.dat
+End of rand  (z) L3 pt tests, No 17 : c_zblat3_17.dat
+End of rand  (s) L2 tests, No 18 : c_sblat2_18.dat
+End of rand  (s) L3 tests, No 18 : c_sblat3_18.dat
+End of rand  (s) L3 pt tests, No 18 : c_sblat3_18.dat
+End of rand  (c) L2 tests, No 18 : c_cblat2_18.dat
+End of rand  (c) L3 tests, No 18 : c_cblat3_18.dat
+End of rand  (c) L3 pt tests, No 18 : c_cblat3_18.dat
+End of rand  (d) L2 tests, No 18 : c_dblat2_18.dat
+End of rand  (d) L3 tests, No 18 : c_dblat3_18.dat
+End of rand  (d) L3 pt tests, No 18 : c_dblat3_18.dat
+End of rand  (z) L2 tests, No 18 : c_zblat2_18.dat
+End of rand  (z) L3 tests, No 18 : c_zblat3_18.dat
+End of rand  (z) L3 pt tests, No 18 : c_zblat3_18.dat
+End of rand  (s) L2 tests, No 19 : c_sblat2_19.dat
+End of rand  (s) L3 tests, No 19 : c_sblat3_19.dat
+End of rand  (s) L3 pt tests, No 19 : c_sblat3_19.dat
+End of rand  (c) L2 tests, No 19 : c_cblat2_19.dat
+End of rand  (c) L3 tests, No 19 : c_cblat3_19.dat
+End of rand  (c) L3 pt tests, No 19 : c_cblat3_19.dat
+End of rand  (d) L2 tests, No 19 : c_dblat2_19.dat
+End of rand  (d) L3 tests, No 19 : c_dblat3_19.dat
+End of rand  (d) L3 pt tests, No 19 : c_dblat3_19.dat
+End of rand  (z) L2 tests, No 19 : c_zblat2_19.dat
+End of rand  (z) L3 tests, No 19 : c_zblat3_19.dat
+End of rand  (z) L3 pt tests, No 19 : c_zblat3_19.dat
+End of rand  (s) L2 tests, No 20 : c_sblat2_20.dat
+End of rand  (s) L3 tests, No 20 : c_sblat3_20.dat
+End of rand  (s) L3 pt tests, No 20 : c_sblat3_20.dat
+End of rand  (c) L2 tests, No 20 : c_cblat2_20.dat
+End of rand  (c) L3 tests, No 20 : c_cblat3_20.dat
+End of rand  (c) L3 pt tests, No 20 : c_cblat3_20.dat
+End of rand  (d) L2 tests, No 20 : c_dblat2_20.dat
+End of rand  (d) L3 tests, No 20 : c_dblat3_20.dat
+End of rand  (d) L3 pt tests, No 20 : c_dblat3_20.dat
+End of rand  (z) L2 tests, No 20 : c_zblat2_20.dat
+End of rand  (z) L3 tests, No 20 : c_zblat3_20.dat
+End of rand  (z) L3 pt tests, No 20 : c_zblat3_20.dat
+End of C   BLAS inter.  tests
+rm -f /home/user/AtlasTest/beta1/C//cblasrun
+make install
+make[1]: Entering directory `/home/user/AtlasTest/beta1'
+cp /home/user/AtlasTest/beta1/..//F77/?blat?.* /home/user/AtlasTest/beta1/F77//.
+cp /home/user/AtlasTest/beta1/..//C/c_?blat?.* /home/user/AtlasTest/beta1/C//.
+make[1]: Leaving directory `/home/user/AtlasTest/beta1'
+( cd /home/user/AtlasTest/beta1/F77/; /bin/csh f77blassan /home/user/ATLAS-3.8.4-arm-beta1/test ARMv732NEON )
+Starting Testing F77 BLAS interface 
+End of short (s) L1 tests
+End of short (s) L2 tests, input file: sblat2.short
+End of short (s) L3 tests, input file: sblat3.short
+End of short (c) L1 tests
+End of short (c) L2 tests, input file: cblat2.short
+End of short (c) L3 tests, input file: cblat3.short
+End of short (d) L1 tests
+End of short (d) L2 tests, input file: dblat2.short
+End of short (d) L3 tests, input file: dblat3.short
+End of short (z) L1 tests
+End of short (z) L2 tests, input file: zblat2.short
+End of short (z) L3 tests, input file: zblat3.short
+End of long  (s) L2 tests, input file: sblat2.long
+End of long  (s) L3 tests, input file: sblat3.long
+End of long  (c) L2 tests, input file: cblat2.long
+End of long  (c) L3 tests, input file: cblat3.long
+End of long  (d) L2 tests, input file: dblat2.long
+End of long  (d) L3 tests, input file: dblat3.long
+End of long  (z) L2 tests, input file: zblat2.long
+End of long  (z) L3 tests, input file: zblat3.long
+End of short (s) L3 pt tests, input file: sblat3.short
+End of short (c) L3 pt tests, input file: cblat3.short
+End of short (d) L3 pt tests, input file: dblat3.short
+End of short (z) L3 pt tests, input file: zblat3.short
+End of long  (s) L3 pt tests, input file: sblat3.long
+End of long  (c) L3 pt tests, input file: cblat3.long
+End of long  (d) L3 pt tests, input file: dblat3.long
+End of long  (z) L3 pt tests, input file: zblat3.long
+rm -f /home/user/AtlasTest/beta1/F77//f77blassan
+make install
+make[1]: Entering directory `/home/user/AtlasTest/beta1'
+cp /home/user/AtlasTest/beta1/..//F77/?blat?.* /home/user/AtlasTest/beta1/F77//.
+cp /home/user/AtlasTest/beta1/..//C/c_?blat?.* /home/user/AtlasTest/beta1/C//.
+make[1]: Leaving directory `/home/user/AtlasTest/beta1'
+( cd /home/user/AtlasTest/beta1/C/; /bin/csh cblassan /home/user/ATLAS-3.8.4-arm-beta1/test ARMv732NEON )
+Starting Testing C BLAS interface 
+End of short (s) L1 tests
+End of short (s) L2 tests, input file : c_sblat2.short
+End of short (s) L3 tests, input file : c_sblat3.short
+End of short (c) L1 tests
+End of short (c) L2 tests, input file : c_cblat2.short
+End of short (c) L3 tests, input file : c_cblat3.short
+End of short (d) L1 tests
+End of short (d) L2 tests, input file : c_dblat2.short
+End of short (d) L3 tests, input file : c_dblat3.short
+End of short (z) L1 tests
+End of short (z) L2 tests, input file : c_zblat2.short
+End of short (z) L3 tests, input file : c_zblat3.short
+End of long  (s) L2 tests, input file : c_sblat2.long
+End of long  (s) L3 tests, input file : c_sblat3.long
+End of long  (c) L2 tests, input file : c_cblat2.long
+End of long  (c) L3 tests, input file : c_cblat3.long
+End of long  (d) L2 tests, input file : c_dblat2.long
+End of long  (d) L3 tests, input file : c_dblat3.long
+End of long  (z) L2 tests, input file : c_zblat2.long
+End of long  (z) L3 tests, input file : c_zblat3.long
+rm -f /home/user/AtlasTest/beta1/C//cblassan
+( cd /home/user/AtlasTest/beta1/F77/; make clean );
+make[1]: Entering directory `/home/user/AtlasTest/beta1/F77'
+rm -rf *.o
+make[1]: Leaving directory `/home/user/AtlasTest/beta1/F77'
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing/; make clean );
+make[1]: Entering directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing'
+rm -rf *.o *.grd
+make[1]: Leaving directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing'
+( cd /home/user/AtlasTest/beta1/C/; make clean );
+make[1]: Entering directory `/home/user/AtlasTest/beta1/C'
+rm -rf *.o
+make[1]: Leaving directory `/home/user/AtlasTest/beta1/C'
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing/; make clean );
+make[1]: Entering directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing'
+rm -f *.o *.grd
+make[1]: Leaving directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing'
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/bin/; make clean );
+make[1]: Entering directory `/home/user/ATLAS-3.8.4-arm-beta1/test/bin'
+rm -f *.o *.grd
+make[1]: Leaving directory `/home/user/ATLAS-3.8.4-arm-beta1/test/bin'
+( cd /home/user/AtlasTest/beta1/F77/; make cleanexe );
+make[1]: Entering directory `/home/user/AtlasTest/beta1/F77'
+rm -f Fgen*
+make[1]: Leaving directory `/home/user/AtlasTest/beta1/F77'
+( cd /home/user/AtlasTest/beta1/F77/; rm -f *.dat );
+rm -rf /home/user/AtlasTest/beta1/F77/*
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing/; make clean );
+make[1]: Entering directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing'
+rm -rf *.o *.grd
+make[1]: Leaving directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing'
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/F77/testing/; rm -f x* );
+( cd /home/user/AtlasTest/beta1/C/; make cleanexe );
+make[1]: Entering directory `/home/user/AtlasTest/beta1/C'
+rm -f Cgen*
+make[1]: Leaving directory `/home/user/AtlasTest/beta1/C'
+( cd /home/user/AtlasTest/beta1/C/; rm -f *.dat );
+rm -rf /home/user/AtlasTest/beta1/C/*
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing/; make clean );
+make[1]: Entering directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing'
+rm -f *.o *.grd
+make[1]: Leaving directory `/home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing'
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/interfaces/blas/C/testing/; rm -f x* );
+( cd /home/user/ATLAS-3.8.4-arm-beta1/test/bin/; rm -f x* );

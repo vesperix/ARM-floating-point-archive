@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A8 GCC Performance with FMA</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>System: 1 GHz ARM Cortex A8 (Beagleboard XM)</p>
+     <p>Compiler: gcc 4.4.5 (native)</p>
+     <p>Configure settings: <tt>--enable-single --enable-neon --enable-perf-events --enable-fma ARM_CPU_TYPE=cortex-a8</tt></p>
+     <p>Comments: <i>Still very good, but enabling FMA seems to cause a 5-10% performance drop. We are very interested in 
+                     learning whether this is true across the full range of NEON implementations, or is simply an idiosyncracy of the 
+                     Cortex A8 and A9's very similar NEON units.</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="c-1d-p.png" alt="Complex 1-D Powers of Two">
+    <img src="c-1d-np.png" alt="Complex 1-D Non-powers of Two">
+    <img src="r-1d-p.png" alt="Real 1-D Powers of Two">
+    <img src="r-1d-np.png" alt="Real 1-D Non-powers of Two">
+    <img src="c-2d-p.png" alt="Complex 2-D Powers of Two">
+    <img src="c-2d-np.png" alt="Complex 2-D Non-powers of Two">
+    <img src="r-2d-p.png" alt="Real 2-D Powers of Two">
+    <img src="r-2d-np.png" alt="Real 2-D Non-powers of Two">
+    <img src="c-3d-p.png" alt="Complex 3-D Powers of Two">
+    <img src="c-3d-np.png" alt="Complex 3-D Non-powers of Two">
+    <img src="r-3d-p.png" alt="Real 3-D Powers of Two">
+    <img src="r-3d-np.png" alt="Real 3-D Non-powers of Two">
+  </div>
+     <p><a href="gcc-a8-fma.txt">Detailed NEON timing data for these cases</a></p>
+  <div class="mtb">
+  <p><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+  </div>
+</body>
+</html>

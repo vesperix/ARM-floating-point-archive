@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Downloading and Building ATLAS-ARM</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <h2>Building ATLAS-ARM <img class="floatright" src="http://www.vesperix.com/Vesperix-small-72.png" alt="Vesperix Logo"></h2>
+  <div class="mtb">
+
+  <p><em>The latest version of the mainline ATLAS distribution (ATLAS 3.10) includes support for ARM NEON. It is available from the 
+      <a href="http://sourceforge.net/projects/math-atlas/files/Stable/">ATLAS download page</a>.</em></p>
+  <p>We will continue to make ATLAS-ARM available here for users too stubborn to change, but we strongly suggest transitioning to the
+     mainline distribution since it will be supported by the original developers. ATLAS-ARM is no longer supported or maintained.</p>
+
+  <p>The process for building ATLAS-ARM is the same as ATLAS 3.8.4; if you do not have experience doing this, please 
+     take a look at the <a href="http://math-atlas.sourceforge.net/atlas_install/">installation 
+     section</a> of the ATLAS manual and run through the build process with the 
+     <a href="http://sourceforge.net/projects/math-atlas/files/Stable/3.8.4/atlas3.8.4.tar.bz2/download">unmodified ATLAS 3.8.4 source</a> first.
+  </p>
+  <h3>Summary for the impatient:</h3>
+    <ol class="plain">
+      <li><a href=atlas-3.8.4-arm.tar.gz>Get the source</a>, untar it, cd into <tt>ATLAS-3.8.4-arm</tt></li>
+      <li><tt>mkdir test; cd test</tt></li>
+      <li><tt>../configure -Si archdef 0</tt></li>
+      <li><tt>make build</tt></li>
+      <li><tt>make check</tt></li>
+      <li>Run the ATLAS test scripts (please do <em>not</em> skip this step!)</li>
+      <li><a href="#bugs">Let us know</a> of any problems you find, or of successful builds on new system types</li>
+  </ol>
+  <p>For additional configuration options and more detailed information, follow the steps below:</p>
+  <h3>Step 1: Download and unpack the source code for ATLAS-ARM</h3>
+    <p>The source is available in <a href=atlas-3.8.4-arm.tar.gz>tar.gz format</a> or
+    <a href=atlas-3.8.4-arm.zip>zip format</a>. The release version is unchanged from beta 3.</p>
+    <p>(Source for beta 1 is still available in <a href=atlas-3.8.4-arm-beta1.tar.gz>tar.gz format</a> or
+    <a href=atlas-3.8.4-arm-beta1.zip>zip format</a>; source for beta 2 is also still available in 
+    <a href=atlas-3.8.4-arm-beta2.tar.gz>tar.gz format</a> or
+    <a href=atlas-3.8.4-arm-beta2.zip>zip format</a>.)</p>
+    <p>Unpack it with <tt>tar xvzf atlas-3.8.4-arm.tar.gz</tt> or <tt>unzip atlas-3.8.4-arm.zip</tt>.</p>
+    <p>All the remaining steps happen in the source directory, so <tt>cd ATLAS-3.8.4-arm</tt>.</p>
+  <h3>Step 2: Make a build directory and run <tt>configure</tt></h3>
+    <p><tt>mkdir test</tt></p>
+    <p><tt>cd test</tt></p>
+    <p><tt>../configure -Si archdef 0</tt></p>
+    <p>The "<tt>-Si archdef 0</tt>" tells ATLAS not to look for a default configuration for your system, but to build from scratch.
+       This is necessary because we don't yet have a good way to automatically identify all the configurations we might encounter.</p>
+    <p>All the other command line arguments supported by ATLAS 3.8.4 work as usual. You'll need these if you want to use a compiler other than
+     <tt>gcc</tt>, for example. See the <a href="http://math-atlas.sourceforge.net/atlas_install/">installation 
+     section</a> of the ATLAS manual for details.
+    </p>
+    <h4>Examples:</h4>
+    <dl>
+      <dt>Normal build:</dt>
+      <dd><tt>../configure -Si archdef 0</tt></dd>
+      <dt>Normal build with CPU-specific optimizations for a Cortex A9 (or substitute any other processor your <tt>gcc</tt> has an <tt>-mtune</tt> option for):</dt>
+      <dd><tt>../configure -Si archdef 0 -Fa al -mtune=cortex-a9</tt></dd>
+      <dt>Normal build with CPU-specific optimizations for new versions of <tt>gcc</tt> 4.6 and later supporting <tt>-mtune=native</tt>:</dt>
+      <dd><tt>../configure -Si archdef 0 -Fa al -mtune=native</tt></dd>
+    </dl>
+    <p>Note that versions of <tt>gcc</tt> up to 4.7.0 do not optimize ATLAS code very well for specific ARM processors, and in many 
+       cases, these "optimizations" reduce speed.
+       You can run <tt>make time</tt> after <tt>make</tt> finishes, as described below, to get a quick overview of the speed of what you've just built.</p>
+    <p>
+       If you're really concerned about maximizing speed, we strongly recommend starting with a normal build, and then comparing the results from an "optimized" build
+       for your processor to see if there's an improvement. You can do this while retaining the results of the normal build by making another directory under
+       <tt>ATLAS-3.8.4-arm</tt>, let's say <tt>test-with-optimizations</tt>, and then repeat the configure and build process in that directory using your 
+       desired optimization flags. Finer control over what optimizations are applied to what routines can be obtained using more specific versions of the 
+       <tt>-Fa</tt> flag settings, as
+       described in the <a href="http://math-atlas.sourceforge.net/atlas_install/atlas_install.html#SECTION00042000000000000000">ATLAS manual</a>.</p>
+    <p>If the configure process fails, please take a look at its output. The <tt>configure</tt> script is designed to check whether the system has
+        everything it needs to build ATLAS, and the error messages can often tell you what part of the system is missing or misconfigured. If you
+        cannot easily resolve the problem using this process, please let us know what happened, including the output of the script.</p>
+  <h3>Step 3: Make the ATLAS libraries</h3>
+    <p>Now you need to pick a time when you won't be using your system for a day or so, since that's how long a build typically takes.
+       When you're ready, run <tt>make build</tt> to build the ATLAS library.</p>
+    <p>If the make process fails, please let us know, and include any messages given by make.</p>
+  <h3>Step 4: Check the results</h3>
+    <p><tt>make check</tt></p>
+    <p>This does some very simple tests, so that you can find any catastrophic failures. You're not done testing yet, though 
+       -- <tt>make check</tt> only does a few basic tests. Before you rely on the results, you'll need to run a much
+       more comprensive set of tests using the <a href=atlas-test-1.1.4.tar.gz>ATLAS test scripts</a>.</p>
+    <p>You can see a quick estimate of how fast your build is by running 
+    <p><tt>make time</tt></p>
+    <p>This will give you a summary of the speed of several basic routines. For large problems, it's the speeds on the <tt>BIG_MM</tt> 
+       line that matter. A typical result on a 1 GHz Cortex A9 using <tt>gcc</tt> 4.6.3 is
+       about 160% of clock for single and complex, and about 70% of clock for double and double complex.</p>
+  <h3>Step 5: Run the ATLAS test scripts</h3>
+    <p>The ATLAS test scripts were written by Antoine Petitet, and are often referred to as "Antoine's Tester".
+       A quick outline of how to set the scripts up is given here; more information on this step is available in the 
+       <a href="http://math-atlas.sourceforge.net/devel/atlas_devel/atlas_devel.html#SECTION00090000000000000000">ATLAS Developer Guide</a>.</p>
+    <h4>Step 5a: Build a reference BLAS library</h4>
+      <p>Download the <a href ="http://www.netlib.org/blas/blas.tgz">NETLIB BLAS</a>, untar them, and <tt>cd BLAS</tt>.</p>
+      <p>Edit <tt>make.inc</tt>, making sure that the right Fortran compiler is specified, and
+         that the optimization settings are conservative (say, <tt>OPTS = -O</tt>). Note the name of the BLAS library that will
+         be created (the default on Linux is <tt>blas_LINUX.a</tt>).</p>
+      <p>Build the reference BLAS library by running <tt>make</tt>.</p>
+    <h4>Step 5b: Download and unpack the <a href="atlas-test-1.1.4.tar.gz">ATLAS tester</a></h4>
+      <p>This puts the tester files in a directory called <tt>AtlasTest</tt>.</p>
+    <h4>Step 5c: Make sure you have <tt>csh</tt> or a compatible shell installed</h4>
+      <p>Some Linux distributions (e.g. Ubuntu) no longer include a <tt>csh</tt>-compatible shell, which the tester needs to run. If you don't
+         have a <tt>csh</tt>-compatible shell, you'll need to consult your distribution's documentation for how to install one 
+         (e.g. <tt>sudo apt-get install tcsh</tt> on Ubuntu).</p>
+    <h4>Step 5d: Edit <tt>Make.inc</tt> in your ATLAS build directory</h4>
+      <p>Change the <tt>BLASLIB =</tt> line in <tt>Make.inc</tt> in the ATLAS build directory to point to the reference BLAS library you just built (for example, 
+         <tt>BLASlib = /home/user/BLAS/blas_LINUX.a</tt>). If you're following the examples in Step 2, the build directory is something like 
+         <tt>/home/user/ATLAS-3.8.4-arm/test</tt>.
+    <h4>Step 5e: Configure the tester</h4>
+      <p>Like ATLAS, the tester wants a subdirectory for each new run. Go to the directory you unpacked the tester into, <tt>mkdir test</tt>, 
+         <tt>cd test</tt>, and tell the tester where the ATLAS library you're testing is located by running:</p>
+      <p><tt>../configure --atldir=[the name of the ATLAS build directory]</tt></p>
+      <p>If you followed the examples in Step 2, this will be something like <tt>../configure --atldir=/home/user/ATLAS-3.8.4-arm/test</tt>.</p>
+    <h4>Step 5f: Run the tester</h4>
+      <p>Run the tester by running <tt>make</tt>. You will be happiest if you do this at a time when you won't need the system for another day or so.
+         (Unlike the ATLAS build, step, where doing other work might potentially affect the timings and produce suboptimal results, 
+         multitasking on the system during the
+         tester runs will not damage anything except your patience. It's not something we recommend, however.)</p>
+    <h4>Step 5g: Check the results</h4>
+      <p>If you do not encounter any errors, the on-screen output of the test script will be a whole lot of build output, followed by
+         the actual test results (for an example, take a look at <a href="AtlasTestLongResults.txt">this file</a>). All of the results are
+         also saved in the <tt>res</tt> subdirectory, so don't worry if you miss the results as they scroll by.</p>
+      <p>If your machine has only one core, the tester will report that it cannot find the threaded libraries (<tt>libptcblas.a</tt>,<tt>libptf77blas.a</tt>, etc.).
+         This should not be surprising, since they aren't built when ATLAS determines the machine has only one core. If you do actually have a multicore CPU
+         and you see this error, it's a problem in detection of multiple cores; please let us know.</p>
+      <p>The simplest way to check the voluminous output for errors is to run the <tt>scope</tt> script provided with the tester.
+         Assuming you're still in the directory where you ran <tt>make</tt> to start the tester, just run <tt>../scope.sh</tt>.</p>
+      <p>If you have no errors, you will see the 37 lines in <a href="AtlasTestResults.txt">this file</a> for a multicore machine, or 
+         the 22 lines in <a href="AtlasTestResultsSingleCore.txt">this file</a> for a single core machine. If you have errors, the
+         output of <tt>scope</tt> will usually be a <em>lot</em> longer, and will include bits of difficult to interpret detail from the test runs
+         that failed. If you see anything other than the 37 lines of <tt>scope</tt> output from a successful run, that's a failure, and you
+         should not use the ATLAS libraries you tested.</p>
+      <p>If any test failures occur, the output stored in the 
+         <tt>res</tt> directory may help you to identify the routines which failed.</p>
+
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2011-4 Vesperix Corporation</small></p>
+</body>
+</html>

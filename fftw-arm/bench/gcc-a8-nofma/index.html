@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A8 GCC Performance</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>System: 1 GHz ARM Cortex A8 (Beagleboard XM)</p>
+     <p>Compiler: gcc 4.4.5 (native)</p>
+     <p>Configure settings: <tt>--enable-single --enable-neon --enable-perf-events ARM_CPU_TYPE=cortex-a8</tt></p>
+     <p>Comments: <i>This is why NEON support matters: 5-8 times the performance on a wide range of FFT sizes.
+                     Peak performance is typically 600 MF to 1 GF. These results were obtained without using the
+                     fused multiply-add instructions of the NEON FPU; see <a href="../gcc-a8-fma/index.html">here</a>
+                     for an identical set of benchmarks with FMA enabled (and 5-10% lower performance).</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="c-1d-p.png" alt="Complex 1-D Powers of Two">
+    <img src="c-1d-np.png" alt="Complex 1-D Non-powers of Two">
+    <img src="r-1d-p.png" alt="Real 1-D Powers of Two">
+    <img src="r-1d-np.png" alt="Real 1-D Non-powers of Two">
+    <img src="c-2d-p.png" alt="Complex 2-D Powers of Two">
+    <img src="c-2d-np.png" alt="Complex 2-D Non-powers of Two">
+    <img src="r-2d-p.png" alt="Real 2-D Powers of Two">
+    <img src="r-2d-np.png" alt="Real 2-D Non-powers of Two">
+    <img src="c-3d-p.png" alt="Complex 3-D Powers of Two">
+    <img src="c-3d-np.png" alt="Complex 3-D Non-powers of Two">
+    <img src="r-3d-p.png" alt="Real 3-D Powers of Two">
+    <img src="r-3d-np.png" alt="Real 3-D Non-powers of Two">
+  </div>
+     <p><a href="gcc-a8-nofma.txt">Detailed NEON timing data for these cases</a></p>
+  <div class="mtb">
+  <p><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+  </div>
+</body>
+</html>

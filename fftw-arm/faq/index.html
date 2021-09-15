@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>FFTW-ARM FAQ</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <h2>Frequently Asked Questions <img class="floatright" src="http://www.vesperix.com/Vesperix-small-72.png" alt="Vesperix Logo"></h2>
+  <div class="mtb">
+  <p><em>Q1. Will ARM support be included in future releases of FFTW from MIT?</em></p>
+  <p>A1. Perhaps. The developers of FFTW are evaluating whether to include ARM support; because MIT distributes FFTW under a 
+         commercial license as well as the GPL, it would be less complicated for them to write their own support for NEON
+         than to take our patches. You can encourage them to support ARM by <a href=mailto:fftw@fftw.org> letting them know</a> that you need it;
+         they have told us that they've seen almost no demand to date.
+  <p><em>Q2. What if I have a Cortex A9 processor without NEON, like the Tegra 2?</em></p>
+  <p>A2. You won't see any benefit from NEON, which is the only difference between FFTW-ARM and the standard FFTW 3.2.2. You can
+         still use FFTW-ARM, of course, since it should do exactly what FFTW 3.2.2 does on any platform that doesn't have NEON.
+         The performance you'll see on an A9 without NEON is shown by the "scalar" lines on the <a href="../bench/gcc-a9-nofma/index.html">
+         A9 benchmark page.</a></p>
+  <p><em>Q3. My build failed. What should I check first?</em></p>
+  <p>A3. Rerun <tt>configure</tt> and look at the output, particularly the sections dealing with <tt>arm_neon.h</tt>. If <tt>configure</tt>
+         says <tt>"checking for arm_neon.h... no"</tt>, the most common cause is that some builds of <tt>gcc</tt> refuse to compile
+         the NEON intrinsics unless the floating point ABI is explicitly specified. You can do this by adding <tt>"ARM_FLOAT_ABI=softfp"</tt>
+         to the arguments you pass to configure. You may also see warning that says <tt>arm_neon.h</tt> was rejected by the preprocessor, 
+         but accepted by the compiler; this is not a problem as long as <tt>configure</tt> then says <tt>proceeding with compiler's result</tt>
+         and <tt>"checking arm_neon.h usability... yes"</tt> also appears.</a></p>
+  <p><em>Q4. How do I build a shared library?</em></p>
+  <p>A4. FFTW's <tt>configure</tt> system doesn't handle this as easily as it should, but you can do it by manually specifying all the needed 
+         compiler options in <tt>CFLAGS</tt>. For example: <br>
+<tt>./configure --enable-single --enable-neon --enable-shared CFLAGS='-fPIC -mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp -O2'</tt></p>
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2011 Vesperix Corporation</small></p>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A9 GCC Performance</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>Version: ATLAS 3.8.4 ARM</p>
+     <p>System: 1 GHz ARM Cortex A9 (Pandaboard)</p>
+     <p>Compiler: gcc 4.5.2</p>
+     <p>Comments: <i>On the A9, single-processor single-precision GEMM reaches a peak of 1.5 gigaflops, and 
+                     thanks to the much improved VFP unit, double precision reaches a peak of 800 megaflops.
+                     Using two cores, single precison peaks at 2.5 gigaflops, and double at 1.2 gigaflops.
+                     Soultion of linear equations using GETRF approaches the GEMM peak speed for N greater than 1000,
+                     with 2.2 gigaflops single and 1.1 gigaflops double at N = 2000. These speeds, achievable
+                     on smartphones and tablets today, match those of a capable desktop workstation from 2000.</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="gemm.png" alt="Matrix Multiply">
+    <img src="gemm-pt.png" alt="Matrix Multiply (Threaded)">
+    <img src="getrf.png" alt="LU Factorization">
+    <img src="getrf-pt.png" alt="LU Factorization (Threaded)">
+  <p><a href='a9-gemm.txt'>GEMM Data File</a></p>
+  <p><a href='a9-gemm-pt.txt'>Threaded GEMM Data File</a></p>
+  <p><a href='a9-getrf.txt'>GETRF Data File</a></p>
+  <p><a href='a9-getrf-pt.txt'>Threaded GETRF Data File</a></p>
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+</body>
+</html>

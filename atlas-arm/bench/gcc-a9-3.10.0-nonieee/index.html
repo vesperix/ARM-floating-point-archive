@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>ATLAS 3.10.0 Performance</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>Version: ATLAS 3.10.0
+     <p>System: 1 GHz ARM Cortex A9 (Pandaboard)</p>
+     <p>Compiler: gcc 4.6.3 using <tt>configure -Si archdef 0 -D c -DATL_NONIEEE=1 -D c -DATL_ARM_HARDFP=1 -Fa alg -mfloat-abi=hard</tt> 
+        to build on Ubuntu 12.04 (which uses the hard floating point ABI) and enable NEON instructions</p>
+     <p>Comments: <i>Single processor speeds are very similar to ATLAS 3.8.4 ARM (not surprising because the GEMM
+        kernels are the same), but 3.10.0 makes better use of multiple cores, and has better performance on single 
+        and double precision complex LU factorizations. We expect better multi-threaded performance to be the major
+        practical benefit of switching to 3.10.0.</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="gemm.png" alt="Matrix Multiply">
+    <img src="gemm-pt.png" alt="Matrix Multiply (Threaded)">
+    <img src="getrf.png" alt="LU Factorization">
+    <img src="getrf-pt.png" alt="LU Factorization (Threaded)">
+  <p><a href='a9-3.10.0-nonieee-gemm.txt'>GEMM Data File</a></p>
+  <p><a href='a9-3.10.0-nonieee-gemm-pt.txt'>Threaded GEMM Data File</a></p>
+  <p><a href='a9-3.10.0-nonieee-getrf.txt'>GETRF Data File</a></p>
+  <p><a href='a9-3.10.0-nonieee-getrf-pt.txt'>Threaded GETRF Data File</a></p>
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2012 Vesperix Corporation</small></p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>ATLAS-ARM FAQ</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <h2>Frequently Asked Questions <img class="floatright" src="http://www.vesperix.com/Vesperix-small-72.png" alt="Vesperix Logo"></h2>
+  <div class="mtb">
+
+  <p><em>Q1. Is ARM support included in the latest stable (3.10) release of ATLAS?</em></p>
+  <p>A1. Yes. We have contributed the ARM architecture detection code and the NEON assembly GEMM routine to the development branch,
+     Clint Whaley (the main author of ATLAS) has written VFP assembly GEMM routines, and his students have contrbuted additional 
+     level 2 BLAS. ATLAS 3.10.0 includes architecture defaults for a Cortex A9 with the soft floating-point ABI (like Angstrom-based
+     distributions and Ubuntu prior to 12.04). If you have a distribution using the hard floating-point ABI (like Ubuntu 12.04 or
+     later), you can buld ATLAS 3.10.0 using</p>
+  <p><tt>../configure -D c -DATL_ARM_HARDFP=1 -Si archdef 0 -Fa alg -mfloat-abi=hard</tt></p>
+  <p>Note that mainline ATLAS releases like 3.10 have always ignored any floating point unit that does not conform to the IEEE 754 
+     specification, so what you'll get if you do this is a BLAS library using the IEEE compliant VFP. If you need the somewhat higher
+     single precision speed of NEON, you'll need to specifically tell ATLAS to use non-IEEE compliant routines, by using</p>
+  <p><tt>../configure -D c -DATL_NONIEEE=1 -Si archdef 0</tt></p>
+  for the soft floating-point ABI, and
+  <p><tt>../configure -D c -DATL_NONIEEE=1 -D c -DATL_ARM_HARDFP=1 -Si archdef 0 -Fa alg -mfloat-abi=hard</tt></p>
+  if your distribution has a hard floating-point ABI.
+  <p><em>Q2. What if I have a Cortex A9 processor without NEON, like the Tegra 2?</em></p>
+  <p>A2. When ATLAS tries GEMM routines, it ignores those that fail on a given platform. On any ARM without NEON, obviously the NEON GEMM will fail, 
+     but Clint Whaley's VFP assembly GEMM routines should be tried and work. You'll get the same double precision results (since those use VFP in all
+     cases), and peak single precision results on a Cortex A9 are about 1.2 gigaflops on a single processor (versus 1.5 gigaflops with NEON).</p>
+
+  <p><em>Q3. Can I cross compile ATLAS?</em></p>
+  <p>A3. No, and it wouldn't be a good idea even if you could. ATLAS chooses the fastest routines for inclusion in the BLAS library on 
+     the basis of tests it makes as the library builds. If you're not building the library on a machine similar to the one you want to 
+     use the BLAS on, then all that tuning is meaningless.</p>
+
+  <p><em>Q4. How can I get ATLAS to run on Android if I can't cross compile? Android doesn't support native compilation.</em></p>
+  <p>A4. The best solution we can offer is to compile ATLAS under Linux on the closest possible analog of the target system, and use the resulting
+     library with the NDK. If the target system is running a Cortex A9, a Pandaboard would make a good analog, for example. We're not aware of any 
+     widely available Linux systems running Qualcomm processors that would let you target those Android platforms; if you know of any, please tell 
+     us so we can mention them here.</p>
+
+  <p><em>Q5. Ubuntu 12.04 has CPU throttling, and ATLAS <tt>configure</tt> complains about this, but the generic ATLAS instructions for turning off 
+     throttling don't work on ARM.  How do I turn throttling off?.</em></p>
+  <p>A5. First, check in <tt>/sys/devices/system/cpu</tt> to see how many cores you have (you'll see directories named <tt>cpu0</tt>, <tt>cpu1</tt>, etc.). 
+     Then run the following commands for each of the cores (we're showing <tt>cpu0</tt> here, but you need to do this for all of them):</p>
+  <dl>
+  <dd><tt>cd /sys/devices/system/cpu/cpu0/cpufreq</tt></dd>
+  <dd><tt>sudo sh -c "echo performance > scaling_governor"</tt></dd>
+  </dl>
+  <p>You'll need sudoer (administrator) access to do this, of course.</p>
+
+  <p><em>Q6. Making ATLAS with <tt>gcc</tt> 4.6.1 sometimes fails during mvtune with the error message <tt>VARIATION EXCEEDS TOLERENCE, RERUN WITH HIGHER REPS</tt>. 
+     How do I fix this?</em></p>
+  <p>A6. This is an issue with ATLAS' timings that can normally be worked around by simply running <tt>make</tt> again (sometimes more than once). As long as <tt>make</tt> 
+     stops at a different point in the build each time, continue to retry. There is a full 
+     <a href=http://math-atlas.sourceforge.net/errata3.8.4.html#tol>discussion</a> of this issue and workaround in the ATLAS errata. If rerunning <tt>make</tt> as many times 
+     as necessary doesn't fix the problem, please <a href="mailto:atlas-arm@vesperix.com">let us know</a>.</p>
+
+  <p><em>Q7. I need fast single precision, but I also need IEEE 754 compliance, which NEON doesn't have. What do I do?</em></p>
+  <p>A7. With a couple of quick edits, you can tell ATLAS not to use the NEON GEMM routines, which are not fully IEEE 754 compliant, but still use the
+     single precison VFP assembly routines, which are. From your base directory, go to <tt>tune/blas/gemm/CASES</tt>, and edit the files <tt>scases.flg</tt> and
+     <tt>ccases.flg</tt>. At the top of each file, you'll see a number, which tells ATLAS how many routines there are in the file to try. The NEON routine is the
+     last one listed in both files, so decreasing the number by one will tell ATLAS to skip the NEON routine, but still try the VFP assembly routines. Then,
+     create a new build directory, <tt>cd</tt> into it, and rerun <tt>configure -Si archdef 0</tt> and <tt>make</tt> (not forgetting to follow up with <tt>make check</tt> 
+     and Antoine's tester). This should give around 70-75% of the peak performance of NEON on a Cortex A9, with full IEEE 754 compliance.</p>
+
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2011-12 Vesperix Corporation</small></p>
+</body>
+</html>

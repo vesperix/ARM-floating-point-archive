@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <title>Cortex A8 GCC Performance</title>
+  <link rel="stylesheet" href="http://www.vesperix.com/VesperixBase.css" type="text/css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+</head>
+<body>
+  <div class="mtb">
+     <p>Version: ATLAS 3.8.4 ARM</p>
+     <p>System: 1 GHz ARM Cortex A8 (Beagleboard XM)</p>
+     <p>Compiler: gcc 4.4.5 (gcc 4.5.1 used for NEON kernel with inline ASM, which is compiled with gcc 4.5 automatically)</p>
+     <p>Comments: <i>Using NEON, single precision real and complex matrix multiplies reach a peak speed of 
+        1.2-1.3 gigaflops. (In contrast, single precision GEMM on the non-pipelined VFP floating-point unit of the A8
+        reaches slightly over 100 megaflops.) Double precision on the VFP is 50-60 megaflops peak. 
+        Computing the LU decomposition (the computationally intensive part of 
+        solving a general system of linear equations) using GETRF, we see that the A8 has not reached its peak speed at N=2000, but 
+        performance exceeds 500 megaflops by N=400-600. (GETRF is asymptotically limited by GEMM speed, so by N=4000 we should see
+        over 1 gigaflop.)</i>
+     </p>
+  </div>
+  <div class="mtb">
+    <img src="gemm.png" alt="Matrix Multiply">
+    <img src="getrf.png" alt="LU Factorization">
+  <p><a href='a8-gemm.txt'>GEMM Data File</a></p>
+  <p><a href='a8-getrf.txt'>GETRF Data File</a></p>
+  </div>
+  <p class="mtb"><small>Copyright &copy; 2010-11 Vesperix Corporation</small></p>
+</body>
+</html>
